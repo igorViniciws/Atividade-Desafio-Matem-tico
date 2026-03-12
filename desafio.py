@@ -5,7 +5,7 @@ def fatorial(n):
     for i in range(1, n + 1):
         resultado = resultado * i
     return resultado
-termos = int(input("Digite o máximo de repetições que você deseja (o ideal seria 20): "))
+termos = int(input("Digite o máximo de repetições que você deseja para ter um resultado mais preciso (o ideal seria 20): "))
 def numero_e(termos):
     soma = 0
     for n in range(termos):
@@ -16,6 +16,7 @@ print("")
 
 
 # PARTE GUSTAVO - SENO
+print("------- CALCULANDO O SENO DE UM ÂNGULO -------")
 # solicitando o valor do angulo
 anguloRecebido = float(input("Digite o ângulo em graus: "))
 # armazenando o valor de pi (ate 15 casas)
@@ -41,97 +42,73 @@ def funcao_taylor(rad, k):
     # sin eh o valor do angulo
 resultado = funcao_taylor(radianoConvertido, k)
 print(f'O seno do angulo {anguloRecebido} = {resultado:.6f}')
+print("")
 
 
-# COSSENO - IGOR
-
+# PARTE IGOR - COSSENO
+print("------- CALCULANDO O COSSENO DE UM ÂNGULO -------")
 def cosseno(angulo):
-
     pi = 3.141592653589793
-
     # converter para radiano
     rad = angulo * pi / 180
-
     cos = 0
     k = 10
-
     for n in range(k):
-
         expoente = 2 * n
-
         # calcular fatorial
         fatorial = 1
         for i in range(1, expoente + 1):
             fatorial *= i
-
         termo = ((-1) ** n) * (rad ** expoente) / fatorial
         cos += termo
-
     return cos
-
-
-# PARTE IGOR - COSSENO
+angulo = float(input("Digite o ângulo em graus: "))
+resultado = cosseno(angulo)
+print("O cosseno de", angulo, "graus é:", resultado)
+print("")
 
 
 # PARTE YASMIN - LOG NATURAL
-
-print("----- Sistema de Log Natural -----")
-print("")
-
+print("------- CALCULANDO O LOG NATURAL -------")
 x = float(input("Digite um número maior que 0: "))
-
 while x <= 0:
     print("Número inválido!")
     x = float(input("Digite um número maior que 0: "))
-
 arredondamento = int(input("Digite o máximo de repeticões que deseja (ideal, 20): "))
-
 soma = 0
 n = 0
-
 while n <= arredondamento:
     termo = (1 / (2*n + 1)) * (((x - 1) / (x + 1)) ** (2*n + 1))
     soma = soma + termo
     n = n + 1
-
 resultado = 2 * soma
-
-print("")
 print(f"ln({x}) ≈ {resultado}")
+print("")
 
 
 # PARTE PEDRO - EXPONENCIAL
-
+print("------- CALCULANDO A FUNÇÃO EXPONENCIAL -------")
 def exponencial (x, termos=50):
     termo_atual = 1.0
     resultado = 1
-    
     for i in range (1, termos):
         termo_atual = termo_atual * x / i
         resultado += termo_atual
-        
     return resultado
-
 x = float(input("digite seu numero: "))
-
 print(exponencial(x))
+print("")
+
 
 # PARTE GUILHERME - PI
-
-print("----------------- CALCULADO O NUMERO DE PI ------------------- ")
-
+print("------- CALCULANDO O PI (π) -------")
 def pi(termos):
     soma = 0
-
     for n in range(termos):
         termo = ((-1)**n) / (2*n + 1)
         soma = soma + termo
-
     return 4 * soma
-
-
 resultado = pi(100000)
-
 print("Valor aproximado de PI:")
 print(resultado)
-
+print("")
