@@ -90,3 +90,20 @@ print(exponencial(x))
 
 # PARTE GUILHERME - PI
 
+print("----------------- CALCULADO O NUMERO DE PI ------------------- ")
+
+def pi(termos):
+    soma = 0
+
+    for n in range(termos):
+        termo = ((-1)**n) / (2*n + 1)
+        soma = soma + termo
+
+    return 4 * soma
+
+
+resultado = pi(100000)
+
+print("Valor aproximado de PI:")
+print(resultado)
+
